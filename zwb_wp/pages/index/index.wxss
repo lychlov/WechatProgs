@@ -1,0 +1,62 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: rpx;
+  border-radius: 50%;
+}
+.qrcode_view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.qrcode {
+  width: 133rpx;
+  height: 133rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usermotto {
+  margin-top: 122px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.motto_plus{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
