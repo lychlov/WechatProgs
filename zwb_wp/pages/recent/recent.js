@@ -7,7 +7,12 @@ Page({
     tabs: ["fake查询", "历史查询", "选项三"],
     activeIndex: 1,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    historyList: [
+      { commond: "101,12313", timestamp: "2017/9/22", id: "1" },
+      { commond: "101,12313", timestamp: "2017/9/23", id: "2" },
+      { commond: "101,12313", timestamp: "2017/9/24", id: "3" }
+    ],
   },
 
   onLoad: function () {
@@ -36,5 +41,13 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+
+  listItemClick: function (e) {
+    console.log(e.currentTarget.id);
+    var listItemId = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../result/result?id='+listItemId
+    })
   }
 });

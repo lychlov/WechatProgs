@@ -7,6 +7,12 @@ page,
     padding-bottom: 0;
 }
 .weui-tab__content{
-    padding-top: 60px;
-    text-align: center;
+    padding-top: 3px;
+    text-align: left;
+    
+
+}
+
+.historyList{
+  
 }
