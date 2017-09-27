@@ -4,4 +4,22 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
   </view>
+
+  <view class='userDetail'>
+    <text>用户状态</text>
+    <text>{{userStaus}}</text>
+    <text>用户名：{{userName}}</text>
+    <text>用户手机号：{{userCellPhone}}</text>
+  </view>
+
+  <view class="usermotto">
+    <text>扫描下方二维码</text>
+  </view>
+  <view class='qrcode_view'>
+    <image class='qrcode' src='/images/qrcode.png'></image>
+  </view>
+
+  <view class='motto_plus'>
+    <text>关注掌W宝企业号</text>
+  </view>
 </view>

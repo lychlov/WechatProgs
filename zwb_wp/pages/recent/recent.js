@@ -4,11 +4,12 @@ var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
 Page({
   data: {
-    tabs: ["历史查询", "选项二", "选项三"],
+    tabs: ["fake查询", "历史查询", "选项三"],
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0
   },
+
   onLoad: function () {
     var that = this;
     wx.getSystemInfo({
@@ -19,7 +20,17 @@ Page({
         });
       }
     });
+    wx.setNavigationBarTitle({
+      title: "历史查询",
+      success: function () {
+        console.log('setNavigationBarTitle success')
+      },
+      fail: function (err) {
+        console.log('setNavigationBarTitle fail, err is', err)
+      }
+    });
   },
+
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,

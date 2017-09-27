@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/recent/recent",
-    "pages/mine/mine"   
+    "pages/mine/mine",
+    "pages/result/result"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -21,7 +22,7 @@
       },
       {
         "pagePath": "pages/recent/recent",
-        "text": "常用命令",
+        "text": "历史查询",
         "iconPath": "images/board.png",
         "selectedIconPath": "images/board-actived.png"
       },

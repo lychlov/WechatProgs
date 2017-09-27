@@ -1,17 +1,28 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var text_11="扫描下方二维码\n";
-var textToSearch="";
+
+var textToSearch = "";
 
 Page({
   data: {
-    text_1:text_11,
+    
     userInfo: {},
-    searchTextHidden:true,
-    textToSearchInf:"",
+    searchTextHidden: true,
+    textToSearchInf: "",
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    tipsArray: [{
+      message: '101,1234654',
+    }, {
+      message: '102,12314,123123',
+    }, {
+      message: '101,213',
+    }, {
+      message: '403,232332',
+    }, {
+      message: '301,21323',
+    }]
   },
   //事件处理函数
   bindViewTap: function () {
@@ -28,7 +39,16 @@ Page({
       that.setData({
         userInfo: userInfo
       })
-    })
+    });
+    wx.setNavigationBarTitle({
+      title: "掌W宝",
+      success: function () {
+        console.log('setNavigationBarTitle success')
+      },
+      fail: function (err) {
+        console.log('setNavigationBarTitle fail, err is', err)
+      }
+    });
   },
   showInput: function () {
     this.setData({
@@ -38,12 +58,12 @@ Page({
 
   searchInput: function () {
     this.setData({
-      inputVal:"",
+      inputVal: "",
       inputShowed: false,
       searchTextHidden: false,
-      textToSearchInf: textToSearch+"\n",
+      textToSearchInf: textToSearch + "\n",
     });
-    
+
   },
   clearInput: function () {
     this.setData({
@@ -54,7 +74,7 @@ Page({
     textToSearch = e.detail.value;
     this.setData({
       inputVal: e.detail.value,
-      
+
     });
   }
 });

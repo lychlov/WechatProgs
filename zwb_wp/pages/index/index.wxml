@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
   </view>
@@ -21,32 +22,17 @@
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="searchInput">查询</view>
     </view>
     <view hidden="{{searchTextHidden}}">
-      <text class='userinfo-nickname' >{{textToSearchInf}}</text>
-
+      <text class='userinfo-nickname'>{{textToSearchInf}}</text>
     </view>
-
-    <view></view>
-
-
-
-
-
   </view>
 
 
-  <view class="usermotto">
-    <text>{{text_1}}</text>
+  <view class='tips'>
+    <view class='tip' wx:for="{{tipsArray}}">
+      <view class='tag'>
+        <text>{{item.message}}</text>
+      </view>
+    </view>
   </view>
-  <view class='qrcode_view'>
-    <image class='qrcode' src='/images/qrcode.png'></image>
-  </view>
-
-  <view class='motto_plus'>
-    <text>关注掌W宝企业号</text>
-  </view>
-
-
-
-
 
 </view>

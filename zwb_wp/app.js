@@ -5,15 +5,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setNavigationBarTitle({
-      title:"掌W宝",
-      success: function () {
-        console.log('setNavigationBarTitle success')
-      },
-      fail: function (err) {
-        console.log('setNavigationBarTitle fail, err is', err)
-      }
-    })
   },
   getUserInfo:function(cb){
     var that = this
