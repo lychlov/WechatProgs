@@ -28,7 +28,7 @@
 
 
   <view class='tips'>
-    <view class='tip' hover-class="tip-hover" wx:for="{{tipsArray}}">
+    <view id="{{item.message}}" class='tip' hover-class="tip-hover" wx:for="{{tipsArray}}" bindtap='tipClick'>
       <view class='tag'>
         <text>{{item.message}}</text>
       </view>

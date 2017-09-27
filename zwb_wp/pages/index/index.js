@@ -76,5 +76,11 @@ Page({
       inputVal: e.detail.value,
 
     });
-  }
+  },
+  tipClick:function(e){
+    console.log(e);
+    wx.navigateTo({
+      url: '../result/result?command=' + e.currentTarget.id,
+    })
+  },
 });

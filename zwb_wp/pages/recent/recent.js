@@ -9,9 +9,9 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     historyList: [
-      { commond: "101,12313", timestamp: "2017/9/22", id: "1" },
-      { commond: "101,12313", timestamp: "2017/9/23", id: "2" },
-      { commond: "101,12313", timestamp: "2017/9/24", id: "3" }
+      { commond: "101,12313", timestamp: "1506523254201", result:"1" },
+      { commond: "101,12313", timestamp: "1506523254233", result: "2" },
+      { commond: "101,12313", timestamp: "1506523250000", result: "3" }
     ],
   },
 
@@ -47,7 +47,7 @@ Page({
     console.log(e.currentTarget.id);
     var listItemId = e.currentTarget.id;
     wx.navigateTo({
-      url: '../result/result?id='+listItemId
+      url: '../result/result?timestamp=1'
     })
   }
 });

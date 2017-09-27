@@ -1,3 +1,6 @@
+<wxs src="../../utils/timeCaculate.wxs" module="tools" />
+
+
 <view class="page">
   <view class="page__bd">
     <view class="weui-tab">
@@ -19,9 +22,9 @@
 
 
             <block wx:for="{{historyList}}" >
-              <view id="{{item.id}}" class="weui-cell" hover-class="weui-cell_active" bindtap="listItemClick">
+              <view id="{{item.timestamp}}" class="weui-cell" hover-class="weui-cell_active" bindtap="listItemClick">
                 <view class="weui-cell__bd">{{item.commond}}</view>
-                <view class="weui-cell__ft">{{item.timestamp}}</view>
+                <view class="weui-cell__ft">{{tools.caculate(item.timestamp)}}</view>
               </view>
 
             </block>

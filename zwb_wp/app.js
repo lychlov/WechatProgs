@@ -5,6 +5,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    console.log(new Date().getTime());
   },
   getUserInfo:function(cb){
     var that = this

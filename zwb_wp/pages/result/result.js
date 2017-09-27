@@ -1,5 +1,7 @@
 // pages/result/result.js
 var listItemId = 1;
+var timestamp;
+var command = "";
 
 Page({
 
@@ -7,27 +9,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: ""
+    timestamp: "",
+    command: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.query);
-    this.setData({
-      id: options.query,
-    });
-    
-   
-
+    console.log("result onLoad");
+    //console.log(options.id);
+    command = options.command;
+    timestamp = options.timestamp;
+    console.log(typeof (command) == "undefined");
+    console.log(typeof (timestamp))
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
