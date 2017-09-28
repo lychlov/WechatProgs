@@ -2,7 +2,7 @@
 var caculate = function (timestamp) {
   var now = Date.now();
   now = (now - timestamp) / 1000;
-  console.log("now"+now);
+  console.log("now" + now);
   console.log("timestamp" + timestamp);
 
   var days = now / (60 * 60 * 24);

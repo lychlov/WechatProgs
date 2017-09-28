@@ -1,3 +1,4 @@
+<wxs src="../../utils/usedCommandsHandler.wxs" module="tools" />
 <!--index.wxml-->
 <view class="container">
 
@@ -28,9 +29,9 @@
 
 
   <view class='tips'>
-    <view id="{{item.message}}" class='tip' hover-class="tip-hover" wx:for="{{tipsArray}}" bindtap='tipClick'>
+    <view id="{{item.command}}" class='tip' hover-class="tip-hover" wx:for="{{tipsArray}}" bindtap='tipClick'>
       <view class='tag'>
-        <text>{{item.message}}</text>
+        <text>{{item.command}}</text>
       </view>
     </view>
   </view>

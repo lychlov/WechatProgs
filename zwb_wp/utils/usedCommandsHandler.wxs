@@ -1,0 +1,37 @@
+var usedCommandsArray = [{}];
+
+
+var initUsedCommands = function () {
+  wx.getStorage({
+    key: 'usedCommands',
+    success: function (res) {
+      console.log(res.data);
+      usedCommandsArray = res.data;
+    }
+  });
+}
+
+var storeUsedCommands = function () {
+  wx.setStorage({
+    key: "usedCommands",
+    data: usedCommandsArray
+  })
+}
+
+var addUsedCommmand = function (commandStr) {
+  if (usedCommandsArray.length >= 10)
+    usedCommandsArray.splice(0, 1);
+  usedCommandsArray.push({ timestamp: Date.now(), command: commandStr });
+};
+
+var getUsedCommands = function () {
+  var temp = usedCommandsArray;
+  return temp.reverse();
+}
+
+module.exports = {
+  addUsedCommmand: addUsedCommmand,
+  getUsedCommands: getUsedCommands,
+  initUsedCommands: initUsedCommands,
+  storeUsedCommands: storeUsedCommands,
+}
