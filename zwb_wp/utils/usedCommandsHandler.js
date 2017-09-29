@@ -2,13 +2,13 @@
 
 //读取存储中的曾用指令
 var readUsedCommands = function () {
-  wx.getStorage({
-    key: 'usedCommands',
-    success: function (res) {
-      console.log(res.data);
-      return res.data;
-    }
-  });
+  var value = wx.getStorageSync("usedCommands");
+  if (value) {
+    console.log(value);
+    return value;
+  } else
+    return false;
+  
 }
 
 var storeUsedCommands = function (usedCommandsArray) {

@@ -1,2 +1,8 @@
 <!--pages/result/result.wxml-->
-<text>{{id}}</text>
+<view wx:for="{{resultsArray}}">
+  <block wx:if="{{item.timestamp==timestamp}}">
+   <view>{{item.result}} </view>
+   <view>{{item.command}} </view>
+    
+   </block>
+</view>

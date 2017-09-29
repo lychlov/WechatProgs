@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/recent/recent",
     "pages/mine/mine",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/result2/result2"
   ],
   "window":{
     "backgroundTextStyle":"light",

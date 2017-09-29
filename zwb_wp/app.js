@@ -23,7 +23,17 @@ App({
           })
         }
       })
-    }
+    };
+    /*
+    wx.setStorage({
+      key: 'results',
+      data: [
+      { command: "101,12313", timestamp: "1506523254201", result: "1" },
+      { command: "101,12313", timestamp: "1506523254233", result: "2" },
+      { command: "101,12313", timestamp: "1506523250000", result: "3" }
+    ]
+    });
+    */
   },
   globalData:{
     userInfo:null,
