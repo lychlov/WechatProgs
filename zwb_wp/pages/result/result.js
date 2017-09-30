@@ -36,8 +36,7 @@ Page({
         icon: 'loading',
 
       });
-      //获取数据函数
-      /*
+
       wx.request({
         url: '', //仅为示例，并非真实的接口地址
         data: {
@@ -48,22 +47,22 @@ Page({
         },
         success: function (res) {
           console.log(res.data)
-          
-          result = res.data;
-          */
-      result = Date.now();
 
-      wx.hideToast();
-      var timestamp = Date.now();
-      resultsArray = util.addResult(resultsArray, command, result, timestamp);
-      util.storeResultsArray(resultsArray);
-      console.log(resultsArray);
-      this.setData({
-        resultsArray: resultsArray,
-        timestamp: timestamp,
+          result = res.data;
+
+          result = Date.now();
+
+          wx.hideToast();
+          var timestamp = Date.now();
+          resultsArray = util.addResult(resultsArray, command, result, timestamp);
+          util.storeResultsArray(resultsArray);
+          console.log(resultsArray);
+          this.setData({
+            resultsArray: resultsArray,
+            timestamp: timestamp,
+          });
+        }
       });
-      //}
-      //});
     };
     //历史查询
     if (typeof (timestamp) != "undefined") {
