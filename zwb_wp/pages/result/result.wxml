@@ -1,22 +1,4 @@
 <!--pages/result/result.wxml-->
-<view class="header_blk">
-  <image src="../common/image/zwb_logo_01.jpg" />
-
-  <!--头部-->
-  <!--内容1告警数据开始-->
-  <view id="zlsj" class="area_blk">
-    <view class="area_tit">
-      <text>告警数据</text>
-      <image src="../common/image/title_underline.png" />
-    </view>
-
-  </view>
-
-</view>
-
-
-
-
 <view wx:for="{{resultsArray}}">
   <block wx:if="{{item.timestamp==timestamp}}">
     <view>{{item.result}} </view>

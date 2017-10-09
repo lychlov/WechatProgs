@@ -7,29 +7,31 @@ var readUsedCommands = function () {
     console.log(value);
     return value;
   } else
-    return false;
-  
+    return [{}];
+
 }
 
 var storeUsedCommands = function (usedCommandsArray) {
   wx.setStorage({
     key: "usedCommands",
     data: usedCommandsArray,
-    success:function(){
+    success: function () {
       return true;
     }
   })
 }
 
-var addUsedCommmand = function (usedCommandsArray,commandStr) {
-  //console.log(usedCommandsArray);
-  if (typeof (usedCommandsArray) =="undefined")
+var addUsedCommmand = function (usedCommandsArray, commandStr) {
+  console.log(usedCommandsArray);
+  if (typeof (usedCommandsArray) == "undefined") {
     usedCommandsArray = new Array();
+    console.log(typeof (usedCommandsArray));
+  }
   if (usedCommandsArray.length >= 12)
     usedCommandsArray.splice(0, 1);
   usedCommandsArray.push({ timestamp: Date.now(), command: commandStr });
   console.log(usedCommandsArray);
-   return usedCommandsArray;
+  return usedCommandsArray;
 };
 
 var getUsedCommands = function (usedCommandsArray) {

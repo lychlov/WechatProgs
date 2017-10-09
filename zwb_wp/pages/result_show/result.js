@@ -1,4 +1,4 @@
-// pages/result2/result2.js
+// pages/result_show/result.js
 Page({
 
   /**

@@ -4,7 +4,7 @@ var getResultsArray = function () {
     //console.log(value);
     return value;
   } else
-    return false;
+    return [{}];
 };
 var getReverse = function (rusultsArray) {
   var temp = rusultsArray.slice(0);
