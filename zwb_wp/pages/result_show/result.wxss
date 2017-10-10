@@ -1,1 +1,5 @@
 /* pages/result_show/result.wxss */
+.header_blk{
+  width: 750rpx;
+  height:81rpx;
+}

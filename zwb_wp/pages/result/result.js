@@ -22,6 +22,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    
     console.log("result onLoad");
     //console.log(options.id);
     command = options.command;
@@ -38,7 +40,7 @@ Page({
       });
 
       wx.request({
-        url: '', //仅为示例，并非真实的接口地址
+        url: 'http://10.217.8.213:8080/wxHost4/restful/command/getResult?user=chengzhikun&'+command, //仅为示例，并非真实的接口地址
         data: {
           command: command,
         },
@@ -50,14 +52,14 @@ Page({
 
           result = res.data;
 
-          result = Date.now();
+          //result = Date.now();
 
           wx.hideToast();
           var timestamp = Date.now();
           resultsArray = util.addResult(resultsArray, command, result, timestamp);
           util.storeResultsArray(resultsArray);
           console.log(resultsArray);
-          this.setData({
+          that.setData({
             resultsArray: resultsArray,
             timestamp: timestamp,
           });
