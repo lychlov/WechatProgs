@@ -7,7 +7,7 @@ var readUsedCommands = function () {
     console.log(value);
     return value;
   } else
-    return [{}];
+    return [];
 
 }
 

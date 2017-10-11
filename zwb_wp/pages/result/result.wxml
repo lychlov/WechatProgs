@@ -1,10 +1,23 @@
 <!--pages/result/result.wxml-->
-<view class='header_blk'>
-  <image class='header_blk' src='../../common/image/zwb_logo_01.jpg'></image>
-</view>
-<text>pages/result_show/result.wxml</text>
 <view wx:for="{{resultsArray}}">
-  <block wx:if="{{item.typeValue}}=='alarm'">
-  <view><text>告警数据</text></view>
+  <block wx:if="{{item.timestamp==timestamp}}">
+    <view class='wrapper'>
+      <view class='header_blk'>
+        <image class='header_blk' src='../../common/image/zwb_logo_01.jpg'></image>
+      </view>
+        <block wx:if="{{item.typeValue==alarm}}">
+          <view class='wrapper'>
+            <text class='area_tit'>告警数据</text>
+            <image class='header_tit' src='../../common/image/title_underline.png'></image>
+            <text>{{item.result}}</text>
+          </view>
+
+        </block>
+    </view>
   </block>
+
 </view>
+<!-->
+
+<view>{{item.result}} </view>
+<view>{{item.command}} </view>

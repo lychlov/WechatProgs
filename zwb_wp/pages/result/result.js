@@ -1,11 +1,12 @@
 var util = require('../../utils/resultsHandler.js')
-
+var ipStr = "10.217.8.213";
+//var ipStr = "211.138.20.238";
 // pages/result/result.js
 var listItemId = 1;
 var timestamp;
 var command = "";
 var result = "";
-var resultsArray = [];
+var resultsArray = new Array;
 
 
 Page({
@@ -23,7 +24,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    
+
     console.log("result onLoad");
     //console.log(options.id);
     command = options.command;
@@ -40,7 +41,7 @@ Page({
       });
 
       wx.request({
-        url: 'http://10.217.8.213:8080/wxHost4/restful/command/getResult?user=chengzhikun&'+command, //仅为示例，并非真实的接口地址
+        url: 'http://' + ipStr + ':8080/wxHost4/restful/command/getResult?user=chengzhikun&', //仅为示例，并非真实的接口地址
         data: {
           command: command,
         },
@@ -51,12 +52,16 @@ Page({
           console.log(res.data)
 
           result = res.data;
-
+          var typeValue = util.getTypeValue(command);
+          console.log(typeValue);
+          if (typeValue=='alarm'){
+            result = util.cutAlarm(result);
+          }
           //result = Date.now();
 
           wx.hideToast();
           var timestamp = Date.now();
-          resultsArray = util.addResult(resultsArray, command, result, timestamp);
+          resultsArray = util.addResult(resultsArray, command, result, timestamp, typeValue);
           util.storeResultsArray(resultsArray);
           console.log(resultsArray);
           that.setData({
@@ -96,6 +101,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    
 
   },
 

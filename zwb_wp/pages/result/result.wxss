@@ -1,5 +1,18 @@
 /* pages/result/result.wxss */
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .header_blk{
   width: 750rpx;
   height:81rpx;
+}
+.area_tit{
+  font-size:1.2em;margin:3px auto; color:#0080cc; font-weight:lighter;
+}
+
+.header_tit{
+  width: 674rpx;
+  height:23rpx;
 }

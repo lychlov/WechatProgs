@@ -11,21 +11,10 @@ var getReverse = function (rusultsArray) {
   var temp = rusultsArray.slice(0);
   return temp.reverse();
 }
-var addResult = function (rusultsArray, commandStr, resultStr, timestamp) {
+var addResult = function (rusultsArray, commandStr, resultStr, timestamp, typeValue) {
   //console.log(usedCommandsArray);
-  var typeValue = "";
   if (typeof (rusultsArray) == "undefined")
-    rusultsArray = new Array();
-  if (rusultsArray.length >= 30)
-    rusultsArray.splice(0, 1);
-  if (commandStr.match("^10[1 - 9].*|^20[1 - 2].*"))
-    typeValue = 'alarm';
-  else if (commandStr.match("^402.*"))
-    typeValue = '402';
-  else if (commandStr.match("^602.*"))
-    typeValue = '602';
-  else
-    typeValue = 'else';
+    rusultsArray = new Array;
 
 
   rusultsArray.push({ timestamp: timestamp, command: commandStr, result: resultStr, typeValue: typeValue });
@@ -43,9 +32,34 @@ var storeResultsArray = function (rusultsArray) {
   })
 }
 
+var getTypeValue = function (commandStr) {
+  var typeValue = "";
+
+
+  if (commandStr.match("^10[1 - 9].*|^20[1 - 2].*"))
+    typeValue = 'alarm';
+  else if (commandStr.match("^402.*"))
+    typeValue = '402';
+  else if (commandStr.match("^602.*"))
+    typeValue = '602';
+  else
+    typeValue = 'else';
+  return typeValue;
+}
+var cutAlarm = function (alarmStr) {
+  var jsonArray = [];
+  alarmStr = alarmStr.replace(/^序号.*基站名称\n/, "")
+  alarmStr = alarmStr.replace(/\n【.*】/, "")
+  console.log(alarmStr)
+  return alarmStr;
+
+}
+
 module.exports = {
   addResult: addResult,
   getResultsArray: getResultsArray,
   storeResultsArray: storeResultsArray,
-  getReverse: getReverse
+  getReverse: getReverse,
+  getTypeValue: getTypeValue,
+  cutAlarm: cutAlarm,
 }
