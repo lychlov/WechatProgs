@@ -1,8 +1,54 @@
 <!--pages/mine/mine.wxml-->
-<view class='container'>
+<view class="userinfo">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
+</view>
+<view class="weui-cells__title">用户验证信息</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">用户名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入用户名" bindinput="binduserNameInput"/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label" >手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindinput="bindPhoneInput"/>
+    </view>
+  </view>
+</view>
+<view class='wrapper'>
+  <view class="button-sp-area" style='width:300rpx;'>
+    <button class="weui-btn" type="primary" plain="true" bindtap='authTap'>验证登录</button>
+  </view>
+</view>
+
+
+<!-->
+<view>
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
+  </view>
+
+
+  <view class="weui-cells__title">手机号</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd" style="width: 105px">
+        <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+          <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+        </picker>
+      </view>
+      <view class="weui-cell__bd weui-cell__bd_in-select-before">
+        <input class="weui-input" placeholder="请输入号码" />
+      </view>
+    </view>
   </view>
 
   <view class='userDetail'>
@@ -10,6 +56,9 @@
     <text>{{userStaus}}</text>
     <text>用户名：{{userName}}</text>
     <text>用户手机号：{{userCellPhone}}</text>
+    <view class="button-sp-area" style='width:500rpx;margin:10px;'>
+      <button class="weui-btn" type="primary" plain="true" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">验证登录</button>
+    </view>
   </view>
 
   <view class="usermotto">

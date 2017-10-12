@@ -1,5 +1,7 @@
 // pages/mine/mine.js
 var app = getApp();
+var userName = "";
+var userPhoneNumber="";
 
 Page({
 
@@ -82,5 +84,22 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  binduserNameInput:function(e){
+    userName = e.detail.value
+  },
+
+  bindPhoneInput: function (e) {
+    userPhoneNumber = e.detail.value
+  },
+
+  getPhoneNumber: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
+  authTap:function(e){
+    console.log(userName+"   "+userPhoneNumber);
+  } 
 })

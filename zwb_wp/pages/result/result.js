@@ -131,5 +131,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  //返回按钮点击
+  backTapping:function(){
+    wx.navigateBack({delta:1})
   }
 })
