@@ -30,7 +30,7 @@ Page({
     command = options.command;
     timestamp = options.timestamp;
     console.log(typeof (command) != "undefined");
-    //resultsArray = util.getResultsArray().slice(0);
+    resultsArray = util.getResultsArray().slice(0);
     console.log(resultsArray);
     //新查询
     if (typeof (command) != "undefined") {

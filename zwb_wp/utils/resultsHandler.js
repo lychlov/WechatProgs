@@ -48,9 +48,16 @@ var getTypeValue = function (commandStr) {
 }
 var cutAlarm = function (alarmStr) {
   var jsonArray = [];
-  alarmStr = alarmStr.replace(/^序号.*基站名称\n/, "")
-  alarmStr = alarmStr.replace(/\n【.*】/, "")
-  console.log(alarmStr)
+  alarmStr = alarmStr.replace(/^序号.*基站名称\n/, "");
+  alarmStr = alarmStr.replace(/\n\n【.*】/, "");
+  alarmStr = alarmStr.split("\n");
+  
+  for (var i=0; i < alarmStr.length;i++){
+    alarmStr[i] = alarmStr[i].split("|");
+
+  }
+  //console.log(alarmStr);
+  
   return alarmStr;
 
 }
