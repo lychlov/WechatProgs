@@ -29,37 +29,9 @@
 </view>
 
 
-<!-->
+
 <view>
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
-  </view>
 
-
-  <view class="weui-cells__title">手机号</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_select">
-      <view class="weui-cell__hd" style="width: 105px">
-        <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
-          <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
-        </picker>
-      </view>
-      <view class="weui-cell__bd weui-cell__bd_in-select-before">
-        <input class="weui-input" placeholder="请输入号码" />
-      </view>
-    </view>
-  </view>
-
-  <view class='userDetail'>
-    <text>用户状态</text>
-    <text>{{userStaus}}</text>
-    <text>用户名：{{userName}}</text>
-    <text>用户手机号：{{userCellPhone}}</text>
-    <view class="button-sp-area" style='width:500rpx;margin:10px;'>
-      <button class="weui-btn" type="primary" plain="true" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">验证登录</button>
-    </view>
-  </view>
 
   <view class="usermotto">
     <text>扫描下方二维码</text>

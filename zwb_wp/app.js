@@ -1,4 +1,5 @@
 //app.js
+var modal =  require('/utils/modal.js');
 App({
   onLaunch: function () {
 
@@ -11,20 +12,34 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    console.log(new Date().getTime());
+    try {
+      var value = wx.getStorageSync('userStatus')
+      if (value) {
+        // Do something with return value
+        this.globalData.userStatus = value.flag;
+        this.globalData.userName = value.userName;
+        console.log(this.globalData.userName);
+        
+      }
+    } catch (e) {
+      // Do something when catch error
+    };
+    if (!this.globalData.userStatus) {
+      modal.showAuthText();
+    }
   },
-  getUserInfo:function(cb){
+  getUserInfo: function (cb) {
     var that = this
-    if(this.globalData.userInfo){
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
+    } else {
       //调用登录接口
       wx.login({
         success: function () {
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
-              
+
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
@@ -42,11 +57,12 @@ App({
     });
     */
   },
-  globalData:{
-    userStatus:null,
-    userPhoneNumber:null,
-    userInfo:null,
-    usedCommands:[{}],
-    results:[{}],
+  globalData: {
+    userStatus: false,
+    userName:"",
+    userPhoneNumber: null,
+    userInfo: null,
+    usedCommands: [{}],
+    results: [{}],
   }
 })

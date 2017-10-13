@@ -1,5 +1,6 @@
 
 var util = require('../../utils/usedCommandsHandler.js')
+var modal = require('../../utils/modal.js')
 //index.js
 //获取应用实例
 var app = getApp();
@@ -62,7 +63,10 @@ Page({
   },
 
   searchInput: function () {
-    
+    if (!app.globalData.userStatus){
+      modal.showAuthText();
+      return;
+    }
     if (textToSearch.length > 0) {
       this.setData({
         inputVal: "",
@@ -103,7 +107,10 @@ Page({
     });
   },
   tipClick: function (e) {
-    console.log(e);
+    if (!app.globalData.userStatus) {
+      modal.showAuthText();
+      return;
+    }
     wx.navigateTo({
       url: '../result/result?command=' + e.currentTarget.id,
     })

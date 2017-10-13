@@ -1,6 +1,7 @@
 var util = require('../../utils/resultsHandler.js')
-var ipStr = "10.217.8.213";
-//var ipStr = "211.138.20.238";
+var app = getApp();
+//var ipStr = "10.217.8.213:8080";
+var ipStr = "wxapp.loyowanwan.cc";
 // pages/result/result.js
 var listItemId = 1;
 var timestamp;
@@ -41,9 +42,10 @@ Page({
       });
 
       wx.request({
-        url: 'http://' + ipStr + ':8080/wxHost4/restful/command/getResult?user=chengzhikun&', //仅为示例，并非真实的接口地址
+        url: 'http://' + ipStr + '/wxHost4/restful/command/getResult', //仅为示例，并非真实的接口地址
         data: {
           command: command,
+          user: app.globalData.userName,
         },
         header: {
           'content-type': 'application/json' // 默认值
