@@ -127,12 +127,12 @@
         </view>
         <view>
           <view wx:for="{{item.result}}" wx:for-index="idx" wx:for-item="line" class='line'>
-            <view wx:for="{{line}}" wx:for-index="lineNum" wx:for-item="content" >
-            
-                <view class='title'>
-                  <text>{{content}}</text>
-                </view>
-              
+            <view wx:for="{{line}}" wx:for-index="lineNum" wx:for-item="content">
+
+              <view class='title'>
+                <text>{{content}}</text>
+              </view>
+
             </view>
 
           </view>
@@ -146,7 +146,100 @@
           <image class='header_tit' src='../../common/image/title_underline.png'></image>
         </view>
         <view>
-          <text>{{item.result}}</text>
+          <view wx:for="{{item.result}}" wx:for-index="idx" wx:for-item="line">
+            <view wx:if="{{idx==1}}">
+              <view wx:for="{{line}}" wx:for-index="lineNum" wx:for-item="content">
+
+                <view wx:if="{{lineNum==0}}" class='line'>
+                  <view class='title'>
+                    <text>本地小区标识</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==1}}" class='line'>
+                  <view class='title'>
+                    <text>小区实例状态</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==2}}" class='line'>
+                  <view class='title'>
+                    <text>最近一次小区状态变化原因</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==3}}" class='line'>
+                  <view class='title'>
+                    <text>基站标识</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==4}}" class='line'>
+                  <view class='title'>
+                    <text>射频单元信息</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==5}}" class='line'>
+                  <view class='title'>
+                    <text>发射通道号</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==6}}" class='line'>
+                  <view class='title'>
+                    <text>接收通道号</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==7}}" class='line'>
+                  <view class='title'>
+                    <text>服务基带处理板信息</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+                <view wx:if="{{lineNum==8}}" class='line'>
+                  <view class='title'>
+                    <text>工作状态</text>
+                  </view>
+                  <view class='content'>
+                    <text>{{content}}</text>
+                  </view>
+                </view>
+
+               
+
+              </view>
+              <!--空行-->
+              <view>
+                <text class='blank'></text>
+              </view>
+            </view>
+          </view>
         </view>
       </block>
       <!--ELSE -->

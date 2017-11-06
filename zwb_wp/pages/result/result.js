@@ -62,6 +62,9 @@ Page({
           if(typeValue=='402'){
             result = util.cut402(result);
           }
+          if (typeValue == '602') {
+            result = util.cut602(result);
+          }
           if(typeValue=='else'){
             result = util.trimResult(result);
           }

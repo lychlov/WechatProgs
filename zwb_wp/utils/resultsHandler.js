@@ -80,12 +80,42 @@ var cut402 = function (alarmStr) {
 
 }
 
+var cut602 = function (alarmStr) {
+  
+  var jsonArray = [];
+  alarmStr = alarmStr.replace(/【.*】/, "");
+  alarmStr = alarmStr.split("\n");
+  for (var i = 0; i < alarmStr.length; i++) {
+    if (alarmStr[i] != "") {
+      console.log(alarmStr[i]);
+      var temp = alarmStr[i].split("|");
+      var temp2 = alarmStr[i].split(" ")
+      if (temp.length > 4) {
+        jsonArray.push(temp);
+      } else if (temp2.length > 4){
+        var temp3 = [];
+        for (var m = 0; m < temp2.length; m++) {
+          if(temp2[m]!=""){
+            temp3.push(temp2[m]);
+          }
+        }
+        jsonArray.push(temp3);
+      }
+    }
+  }
+  console.log(alarmStr);
+
+  return jsonArray;
+
+}
+
 var trimResult = function(result){
   result  = result.replace(/\n【m.*】\n/,"");
   return result;
 }
 
 module.exports = {
+  cut602, cut602,
   addResult: addResult,
   getResultsArray: getResultsArray,
   storeResultsArray: storeResultsArray,
