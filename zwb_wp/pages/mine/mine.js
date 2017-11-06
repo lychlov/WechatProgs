@@ -2,8 +2,8 @@
 var app = getApp();
 var userName = "";
 var userPhoneNumber = "";
-//var ipStr = "10.217.8.213:8080";
-var ipStr = "wxapp.loyowanwan.cc";
+var ipStr = "10.217.8.213:8080";
+//var ipStr = "wxapp.loyowanwan.cc";
 var userStatus = false;
 
 Page({

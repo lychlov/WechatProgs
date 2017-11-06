@@ -120,13 +120,45 @@
       </block>
 
       <!--402-->
-      <block wx:if="{{item.typeValue!='alarm'}}">
+      <block wx:if="{{item.typeValue=='402'}}">
         <view class='wrapper'>
-          <text class='area_tit'>告警数据</text>
+          <text class='area_tit'>指令数据</text>
           <image class='header_tit' src='../../common/image/title_underline.png'></image>
         </view>
+        <view>
+          <view wx:for="{{item.result}}" wx:for-index="idx" wx:for-item="line" class='line'>
+            <view wx:for="{{line}}" wx:for-index="lineNum" wx:for-item="content" >
+            
+                <view class='title'>
+                  <text>{{content}}</text>
+                </view>
+              
+            </view>
+
+          </view>
+        </view>
       </block>
+
       <!--602-->
+      <block wx:if="{{item.typeValue=='602'}}">
+        <view class='wrapper'>
+          <text class='area_tit'>指令查询</text>
+          <image class='header_tit' src='../../common/image/title_underline.png'></image>
+        </view>
+        <view>
+          <text>{{item.result}}</text>
+        </view>
+      </block>
+      <!--ELSE -->
+      <block wx:if="{{item.typeValue=='else'}}">
+        <view class='wrapper'>
+          <text class='area_tit'>指令查询</text>
+          <image class='header_tit' src='../../common/image/title_underline.png'></image>
+        </view>
+        <view>
+          <text>{{item.result}}</text>
+        </view>
+      </block>
 
     </view>
   </block>

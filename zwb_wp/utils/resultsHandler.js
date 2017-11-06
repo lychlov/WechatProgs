@@ -62,6 +62,29 @@ var cutAlarm = function (alarmStr) {
 
 }
 
+var cut402 = function (alarmStr) {
+  var jsonArray = [];
+  alarmStr = alarmStr.replace(/\n【.*】\n/, "");
+  alarmStr = alarmStr.split("\n");
+
+  for (var i = 0; i < alarmStr.length; i++) {
+    var temp = alarmStr[i].split("|");
+    console.log(temp.length);
+    if (temp.length==3){
+      jsonArray[i] = temp;
+    }
+  }
+  //console.log(alarmStr);
+
+  return jsonArray;
+
+}
+
+var trimResult = function(result){
+  result  = result.replace(/\n【m.*】\n/,"");
+  return result;
+}
+
 module.exports = {
   addResult: addResult,
   getResultsArray: getResultsArray,
@@ -69,4 +92,6 @@ module.exports = {
   getReverse: getReverse,
   getTypeValue: getTypeValue,
   cutAlarm: cutAlarm,
+  trimResult: trimResult,
+  cut402: cut402,
 }

@@ -1,7 +1,7 @@
 var util = require('../../utils/resultsHandler.js')
 var app = getApp();
-//var ipStr = "10.217.8.213:8080";
-var ipStr = "wxapp.loyowanwan.cc";
+var ipStr = "10.217.8.213:8080";
+//var ipStr = "wxapp.loyowanwan.cc";
 // pages/result/result.js
 var listItemId = 1;
 var timestamp;
@@ -58,6 +58,12 @@ Page({
           console.log(typeValue);
           if (typeValue=='alarm'){
             result = util.cutAlarm(result);
+          }
+          if(typeValue=='402'){
+            result = util.cut402(result);
+          }
+          if(typeValue=='else'){
+            result = util.trimResult(result);
           }
           //result = Date.now();
 
